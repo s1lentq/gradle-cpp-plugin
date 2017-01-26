@@ -7,11 +7,11 @@ import org.apache.commons.lang.SystemUtils
 import org.gradle.api.Action
 import org.gradle.api.Project
 import org.gradle.api.Task
-import org.gradle.api.internal.project.AbstractProject
+import org.gradle.api.internal.project.DefaultProject
 import org.gradle.language.c.tasks.CCompile
 import org.gradle.language.cpp.tasks.CppCompile
 import org.gradle.language.nativeplatform.tasks.AbstractNativeCompileTask
-import org.gradle.model.internal.core.DirectNodeModelAction
+import org.gradle.model.internal.core.DirectNodeNoInputsModelAction
 import org.gradle.model.internal.core.ModelActionRole
 import org.gradle.model.internal.core.ModelPath
 import org.gradle.model.internal.core.ModelReference
@@ -91,11 +91,11 @@ class GradleCppUtils {
     }
 
     static void onTasksCreated(Project p, String desc, Closure action) {
-        ModelRegistry mr = (p as AbstractProject).getModelRegistry()
+        ModelRegistry mr = (p as DefaultProject).getModelRegistry()
         def modelPath = ModelPath.path("tasks")
         ModelRuleDescriptor ruleDescriptor = new SimpleModelRuleDescriptor(desc);
 
-        mr.configure(ModelActionRole.Finalize, DirectNodeModelAction.of(ModelReference.of(modelPath), ruleDescriptor, new Action<MutableModelNode>() {
+        mr.configure(ModelActionRole.Finalize, DirectNodeNoInputsModelAction.of(ModelReference.of(modelPath), ruleDescriptor, new Action<MutableModelNode>() {
             @Override
             void execute(MutableModelNode node) {
                 action()

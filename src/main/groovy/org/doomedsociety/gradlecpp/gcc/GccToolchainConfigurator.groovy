@@ -5,8 +5,8 @@ import org.doomedsociety.gradlecpp.cfg.BaseConfigurator
 import org.doomedsociety.gradlecpp.cfg.ToolchainConfig
 import org.gradle.api.Project
 import org.gradle.api.Task
-import org.gradle.language.PreprocessingTool
 import org.gradle.language.nativeplatform.tasks.AbstractNativeCompileTask
+import org.gradle.nativeplatform.PreprocessingTool
 import org.gradle.nativeplatform.NativeBinarySpec
 import org.gradle.nativeplatform.Tool
 

@@ -5,8 +5,7 @@ import org.doomedsociety.gradlecpp.cfg.BaseConfigurator
 import org.doomedsociety.gradlecpp.cfg.ToolchainConfig
 import org.gradle.api.Action
 import org.gradle.api.Project
-import org.gradle.language.PreprocessingTool
-import org.gradle.model.internal.core.DirectNodeModelAction
+import org.gradle.model.internal.core.DirectNodeNoInputsModelAction
 import org.gradle.model.internal.core.ModelActionRole
 import org.gradle.model.internal.core.ModelPath
 import org.gradle.model.internal.core.ModelReference
@@ -14,6 +13,7 @@ import org.gradle.model.internal.core.MutableModelNode
 import org.gradle.model.internal.core.rule.describe.ModelRuleDescriptor
 import org.gradle.model.internal.core.rule.describe.SimpleModelRuleDescriptor
 import org.gradle.model.internal.registry.ModelRegistry
+import org.gradle.nativeplatform.PreprocessingTool
 import org.gradle.nativeplatform.NativeBinarySpec
 import org.gradle.nativeplatform.StaticLibraryBinarySpec
 import org.gradle.nativeplatform.Tool
